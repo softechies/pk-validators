@@ -1,0 +1,63 @@
+{
+  "name": "@softechies/pk-validators",
+  "version": "0.1.0",
+  "description": "Validate and format Pakistani data: CNIC, NTN, mobile numbers, IBAN, postal codes, PKR amounts and amount in words (lakh/crore).",
+  "keywords": [
+    "pakistan",
+    "cnic",
+    "ntn",
+    "iban",
+    "validation",
+    "phone",
+    "pkr",
+    "amount-in-words",
+    "lakh",
+    "crore",
+    "urdu"
+  ],
+  "license": "MIT",
+  "author": "Softechies Solutions",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/softechies/pk-validators.git"
+  },
+  "homepage": "https://github.com/softechies/pk-validators#readme",
+  "bugs": {
+    "url": "https://github.com/softechies/pk-validators/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.0",
+    "vitest": "^5.0.3"
+  }
+}
